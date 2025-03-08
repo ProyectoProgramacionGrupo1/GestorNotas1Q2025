@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="GestorNotas1Q2025.Views.MainView"
+             Title="MainView">
+    <ScrollView>
+        <VerticalStackLayout Padding="10">
+            <Button Text="Buscar Nota" Margin="5"></Button>
+            <Button Text="Agregar Nota" Margin="5" Command="{Binding GoToAddEditViewCommand}"></Button>
+            
+            <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="*,*">
+                <Label Text="Titulo" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"></Label>
+                <Label Text="Descripcion" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"></Label>
+            </Grid>
+            <Grid RowSpacing="0" RowDefinitions="Auto" ColumnDefinitions="*,*">
+                <Label Text="Nota 1" Grid.Row="1" Grid.Column="0"></Label>
+                <Label Text="Loewm Ipsum" Grid.Row="1" Grid.Column="1"></Label> 
+                
+            </Grid>
+            
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>

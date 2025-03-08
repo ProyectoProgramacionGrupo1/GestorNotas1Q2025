@@ -1,4 +1,6 @@
-﻿namespace GestorNotas1Q2025
+﻿using GestorNotas1Q2025.Views;
+
+namespace GestorNotas1Q2025
 {
     public partial class App : Application
     {
@@ -6,7 +8,7 @@
         {
             InitializeComponent();
 
-            MainPage = new AppShell();
+            MainPage =new NavigationPage (new MainView());
         }
     }
 }
