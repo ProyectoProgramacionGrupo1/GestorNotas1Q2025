@@ -1,0 +1,272 @@
+Index: GestorNotas1Q2025/MainPage.xaml.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GestorNotas1Q2025/MainPage.xaml.cs b/GestorNotas1Q2025/MainPage.xaml.cs
+deleted file mode 100644
+--- a/GestorNotas1Q2025/MainPage.xaml.cs	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,25 +0,0 @@
+-namespace GestorNotas1Q2025
+-{
+-    public partial class MainPage : ContentPage
+-    {
+-        int count = 0;
+-
+-        public MainPage()
+-        {
+-            InitializeComponent();
+-        }
+-
+-        private void OnCounterClicked(object sender, EventArgs e)
+-        {
+-            count++;
+-
+-            if (count == 1)
+-                CounterBtn.Text = $"Clicked {count} time";
+-            else
+-                CounterBtn.Text = $"Clicked {count} times";
+-
+-            SemanticScreenReader.Announce(CounterBtn.Text);
+-        }
+-    }
+-
+-}
+Index: GestorNotas1Q2025/ViewModels/GestionesViewModel.cs
+===================================================================
+diff --git a/GestorNotas1Q2025/ViewModels/GestionesViewModel.cs b/GestorNotas1Q2025/ViewModels/GestionesViewModel.cs
+deleted file mode 100644
+--- a/GestorNotas1Q2025/ViewModels/GestionesViewModel.cs	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,43 +0,0 @@
+-using System.Collections.ObjectModel;
+-using CommunityToolkit.Mvvm.ComponentModel;
+-using CommunityToolkit.Mvvm.Input;
+-
+-namespace GestorNotas1Q2025.ViewModels;
+-
+-public partial class GestionesViewModel:ObservableObject
+-{
+-
+-    
+-    
+-    [ObservableProperty]
+-    private ObservableCollection<string> items;
+-    
+-    [ObservableProperty]
+-    private string texto;
+-
+-    [RelayCommand]
+-    private void AgregarRegistro()
+-    {
+-        try
+-        {
+-            items.Add(texto);
+-            texto=string.Empty;
+-        }
+-        catch (Exception ex)
+-        {
+-            Alerta("ERROR", ex.Message);
+-            throw;
+-        }
+-        Alerta("ERROR", "Agregando");
+-        
+-    }
+-    
+-    
+-    private void Alerta(string Titulo, string Mensaje)
+-    {
+-        MainThread.BeginInvokeOnMainThread(async () => await App.Current!.MainPage!.DisplayAlert(Titulo, Mensaje, "Aceptar"));
+-    }
+-    
+-    
+-    
+-}
+\ No newline at end of file
+Index: GestorNotas1Q2025/AppShell.xaml.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GestorNotas1Q2025/AppShell.xaml.cs b/GestorNotas1Q2025/AppShell.xaml.cs
+deleted file mode 100644
+--- a/GestorNotas1Q2025/AppShell.xaml.cs	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,10 +0,0 @@
+-namespace GestorNotas1Q2025
+-{
+-    public partial class AppShell : Shell
+-    {
+-        public AppShell()
+-        {
+-            InitializeComponent();
+-        }
+-    }
+-}
+Index: GestorNotas1Q2025/Views/Home.xaml.cs
+===================================================================
+diff --git a/GestorNotas1Q2025/Views/Home.xaml.cs b/GestorNotas1Q2025/Views/Home.xaml.cs
+deleted file mode 100644
+--- a/GestorNotas1Q2025/Views/Home.xaml.cs	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,19 +0,0 @@
+-using System;
+-using System.Collections.Generic;
+-using System.Linq;
+-using System.Text;
+-using System.Threading.Tasks;
+-using GestorNotas1Q2025.ViewModels;
+-
+-namespace GestorNotas1Q2025.Views;
+-
+-public partial class Home : ContentPage
+-{
+-    GestionesViewModel viewModel;
+-    public Home()
+-    {
+-        InitializeComponent();
+-        viewModel = new GestionesViewModel();
+-        BindingContext = viewModel;
+-    }
+-}
+\ No newline at end of file
+Index: GestorNotas1Q2025/MainPage.xaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GestorNotas1Q2025/MainPage.xaml b/GestorNotas1Q2025/MainPage.xaml
+deleted file mode 100644
+--- a/GestorNotas1Q2025/MainPage.xaml	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,36 +0,0 @@
+-<?xml version="1.0" encoding="utf-8" ?>
+-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+-             x:Class="GestorNotas1Q2025.MainPage">
+-
+-    <ScrollView>
+-        <VerticalStackLayout
+-            Padding="30,0"
+-            Spacing="25">
+-            <Image
+-                Source="dotnet_bot.png"
+-                HeightRequest="185"
+-                Aspect="AspectFit"
+-                SemanticProperties.Description="dot net bot in a race car number eight" />
+-
+-            <Label
+-                Text="Hello, World!"
+-                Style="{StaticResource Headline}"
+-                SemanticProperties.HeadingLevel="Level1" />
+-
+-            <Label
+-                Text="Hola Tarolas"
+-                Style="{StaticResource SubHeadline}"
+-                SemanticProperties.HeadingLevel="Level2"
+-                SemanticProperties.Description="Welcome to dot net Multi platform App U I" />
+-
+-            <Button
+-                x:Name="CounterBtn"
+-                Text="Click me" 
+-                SemanticProperties.Hint="Counts the number of times you click"
+-                Clicked="OnCounterClicked"
+-                HorizontalOptions="Fill" />
+-        </VerticalStackLayout>
+-    </ScrollView>
+-
+-</ContentPage>
+Index: GestorNotas1Q2025/Views/Home.xaml
+===================================================================
+diff --git a/GestorNotas1Q2025/Views/Home.xaml b/GestorNotas1Q2025/Views/Home.xaml
+deleted file mode 100644
+--- a/GestorNotas1Q2025/Views/Home.xaml	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,60 +0,0 @@
+-<?xml version="1.0" encoding="utf-8"?>
+-
+-<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+-             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+-             xmlns:viewModel="clr-namespace:GestorNotas1Q2025.ViewModels"
+-             x:DataType="viewModel:GestionesViewModel"
+-             x:Class="GestorNotas1Q2025.Views.Home">
+-    
+-    
+-    <Grid RowDefinitions="100,Auto,*"
+-          ColumnDefinitions=".75*,0.25*"
+-          Padding="10"
+-          RowSpacing="10"
+-          ColumnSpacing="10">
+-        
+-        
+-        <Image
+-            Grid.ColumnSpan="2"
+-            Source="notasicon.png"
+-            BackgroundColor="Transparent"/>
+-        
+-        <Entry Placeholder="Ingrese Nota"
+-               Text="{Binding Texto}"
+-               Grid.Row="1"></Entry>
+-        
+-        <Button
+-            Text="Agregar Nota"
+-            Command="{Binding AgregarRegistroCommand}"
+-            Grid.Row="1"
+-            Grid.Column="1"></Button>
+-        
+-        <CollectionView
+-            Grid.Row="2" Grid.ColumnSpan="2"
+-            ItemsSource="{Binding Items}">
+-            
+-        </CollectionView>
+-        
+-        <CollectionView.ItemTemplate>
+-            <DataTemplate x:DataType="{x:Type x:String}">
+-                <SwipeView>
+-                    <SwipeView.RightItems>
+-                        <SwipeItem Text="Eliminar" BackgroundColor="Red"></SwipeItem>
+-                    </SwipeView.RightItems>
+-                    <Grid Padding="0.5">
+-                        <Border>
+-                            <Label Text="{Binding }" FontSize="24"></Label>
+-                        </Border>
+-                    </Grid>
+-                </SwipeView>
+-            </DataTemplate>
+-        </CollectionView.ItemTemplate>
+-        
+-        
+-    </Grid>
+-    
+-    
+-    
+-    
+-    
+-</ContentPage>
+\ No newline at end of file
+Index: GestorNotas1Q2025/AppShell.xaml
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/GestorNotas1Q2025/AppShell.xaml b/GestorNotas1Q2025/AppShell.xaml
+deleted file mode 100644
+--- a/GestorNotas1Q2025/AppShell.xaml	(revision 4fe861aa235776c05903196385a114ba95059484)
++++ /dev/null	(revision 4fe861aa235776c05903196385a114ba95059484)
+@@ -1,15 +0,0 @@
+-<?xml version="1.0" encoding="UTF-8" ?>
+-<Shell
+-    x:Class="GestorNotas1Q2025.AppShell"
+-    xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+-    xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+-    xmlns:local="clr-namespace:GestorNotas1Q2025"
+-    Shell.FlyoutBehavior="Disabled"
+-    Title="GestorNotas1Q2025">
+-
+-    <ShellContent
+-        Title="Home"
+-        ContentTemplate="{DataTemplate local:MainPage}"
+-        Route="MainPage" />
+-
+-</Shell>
