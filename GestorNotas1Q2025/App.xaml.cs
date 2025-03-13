@@ -8,7 +8,7 @@ namespace GestorNotas1Q2025
         {
             InitializeComponent();
 
-            MainPage =new NavigationPage (new MainView());
+            MainPage = new NavigationPage(new MainView());
         }
     }
 }
