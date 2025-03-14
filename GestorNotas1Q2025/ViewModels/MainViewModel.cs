@@ -8,7 +8,7 @@ namespace GestorNotas1Q2025.ViewModels
         [RelayCommand]
         private async Task GoToAddEditView()
         {
-            await App.Current!.MainPage.Navigation.PushAsync(new AddEditView());
+            await App.Current!.MainPage!.Navigation.PushAsync(new AddEditView());
         }
     }
 }

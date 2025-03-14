@@ -9,6 +9,6 @@ public partial class MainView : ContentPage
 	{
 		InitializeComponent();
 		viewModel = new MainViewModel();
-		BindingContext = viewModel;
+		this.BindingContext = viewModel;
 	}
 }

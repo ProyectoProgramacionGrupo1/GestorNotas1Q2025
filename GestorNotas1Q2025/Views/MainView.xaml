@@ -2,7 +2,7 @@
 <ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="GestorNotas1Q2025.Views.MainView"
-             Title="MainView">
+             Title="Notas">
     <ScrollView>
         <VerticalStackLayout Padding="10">
             <Button Text="Buscar Nota" Margin="5"></Button>
