@@ -11,14 +11,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5bd6cd61-7a56-438c-82f3-3a0b06e6f110" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/GestorNotas1Q2025/Views/AddEditView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GestorNotas1Q2025/Views/AddEditView.xaml.cs" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GestorNotas1Q2025/Views/MainView.xaml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/GestorNotas1Q2025/Views/MainView.xaml.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.GestorNotas1Q2025/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.GestorNotas1Q2025/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestorNotas1Q2025/App.xaml.cs" beforeDir="false" afterPath="$PROJECT_DIR$/GestorNotas1Q2025/App.xaml.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestorNotas1Q2025/GestorNotas1Q2025.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/GestorNotas1Q2025/GestorNotas1Q2025.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/GestorNotas1Q2025/Resources/Images/notasicon.png" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -114,6 +107,8 @@
       <workItem from="1740974583025" duration="2369000" />
       <workItem from="1741464863428" duration="226000" />
       <workItem from="1741465460834" duration="881000" />
+      <workItem from="1741466757649" duration="2827000" />
+      <workItem from="1741828087967" duration="581000" />
     </task>
     <servers />
   </component>
