@@ -5,15 +5,17 @@
              xmlns:viewModel="clr-namespace:GestorNotas1Q2025.ViewModels"
              x:DataType="viewModel:AddEditViewModel"
              Title="">
-    <VerticalStackLayout Padding="30" Spacing="5">
-        
-        
+
+    <VerticalStackLayout Padding="30" Spacing="15">
+
+        <Label Text="Agregar/Actualizar Notas" FontSize="20" FontAttributes="Bold" TextTransform="Uppercase" HorizontalTextAlignment="Center" Margin="0,0,0,30"/>
+
         <Label Text="Titulo:"></Label>
         <Entry Text="{Binding Titulo}" Keyboard="Text"></Entry>
         
         <Label Text="Descripcion:"></Label>
         <Entry Text="{Binding Descripcion}" Keyboard="Text"></Entry>
-        
-        <Button Text="Guardar" Background="Green" Command="{Binding AddUpdateCommand}"></Button>
+
+        <Button Text="Guardar" Background="Green" Command="{Binding AddUpdateCommand}" Margin="0,20,0,0" TextColor="White" TextTransform="Uppercase" FontAttributes="Bold" CornerRadius="40" />
     </VerticalStackLayout>
 </ContentPage>

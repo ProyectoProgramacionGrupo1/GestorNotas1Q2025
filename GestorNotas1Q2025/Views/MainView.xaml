@@ -17,7 +17,8 @@
             
             <Button Text="Agregar Nota" Command="{Binding GoToAdEditViewCommand}" Margin="5,0,0,30" TextColor="white" BackgroundColor="Chocolate" FontAttributes="Bold" CornerRadius="30" />
 
-
+            
+            <RoundRectangle Margin="-5,-30,-5,-2" CornerRadius="30,30,0,0" Fill="White"/>
             <Grid Margin="5,5,5,5" RowDefinitions="Auto" ColumnDefinitions="60,*,*" >
                 <Label Text="Id" Grid.Row="0" Grid.Column="0" FontAttributes="Bold"></Label>
                 <Label Text="Titulo" Grid.Row="0" Grid.Column="1" FontAttributes="Bold"></Label>
@@ -34,8 +35,7 @@
                             <Grid.GestureRecognizers>
                                 <TapGestureRecognizer Command="{Binding Source={x:RelativeSource AncestorType={x:Type viewModel:MainViewModel}},Path=SelectCommand }" CommandParameter="{Binding}"></TapGestureRecognizer>
                             </Grid.GestureRecognizers>
-                            
-                            
+                           
                         </Grid>
                     </DataTemplate>
                 </CollectionView.ItemTemplate>
