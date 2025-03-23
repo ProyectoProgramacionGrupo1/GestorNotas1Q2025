@@ -20,6 +20,9 @@ namespace GestorNotas1Q2025.ViewModels
         [ObservableProperty]
         private ObservableCollection<NotaModel> notaCollection = new ObservableCollection<NotaModel>();
 
+        [ObservableProperty]
+        private string buscarNota; 
+
         private readonly NotaService _service;
 
         public MainViewModel()
@@ -92,6 +95,38 @@ namespace GestorNotas1Q2025.ViewModels
             {
                 Alerta("Error",ex.Message);
                 throw;
+            }
+        }
+
+
+        [RelayCommand]
+        public void Buscar()
+        {
+            try
+            {
+                notaCollection.Clear();
+                var resultado = _service.GetAll(BuscarNota); 
+
+                foreach(var nota in resultado)
+                {
+                    notaCollection.Add(nota); 
+                }
+
+            }catch(Exception e)
+            {
+                Alerta("ERROR", e.Message); 
+            }
+        }
+
+        partial void OnBuscarNotaChanged(string value)
+        {
+            if (string.IsNullOrEmpty(value))
+            {
+                GetAll(); 
+            }
+            else
+            {
+                Buscar(); 
             }
         }
 

@@ -15,9 +15,16 @@ public class NotaService
         _connection.CreateTable<NotaModel>();
     }
 
-    public List<NotaModel> GetAll()
+    public List<NotaModel> GetAll(string filtro = "")
     {
-        return _connection.Table<NotaModel>().ToList();
+
+        if (string.IsNullOrEmpty(filtro))
+        {
+            return _connection.Table<NotaModel>().ToList();
+        }
+        
+            return _connection.Table<NotaModel>().Where(nota => nota.Titulo.ToLower().Contains(filtro.ToLower())).ToList();
+
     }
 
     public int Insert(NotaModel Nota)
